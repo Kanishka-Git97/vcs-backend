@@ -46,4 +46,14 @@ public class ClientImpl implements ClientService{
     public List<Client> all(){
         return  repository.findAll();
     }
+
+    @Override
+    public Client get(int id) {
+        return repository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<Client> getByDoctor(Integer doctor) {
+        return repository.getByDoctor(doctor);
+    }
 }

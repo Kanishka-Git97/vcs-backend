@@ -23,4 +23,19 @@ public class PetController {
     public List<Pet> all(){
         return service.all();
     }
+
+    @PostMapping("/get_by_doctor")
+    public List<Pet> getByDoctor(@RequestBody ObjectNode data){
+        return service.getByDoctor(data.get("doctor").asInt());
+    }
+
+    @PostMapping("/update")
+    public String update(@RequestBody Pet pet){
+        return service.update(pet);
+    }
+
+    @PostMapping("/getforappointment")
+    public List<Pet> getForAppointment(@RequestBody ObjectNode data){
+        return service.getByClientAndDoctor(data.get("client").asInt(), data.get("doctor").asInt());
+    }
 }

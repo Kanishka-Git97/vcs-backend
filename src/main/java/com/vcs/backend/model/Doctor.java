@@ -9,95 +9,115 @@ public class Doctor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int id;
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setFee(double fee) {
-        this.fee = fee;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setUserRef(int userRef) {
-        this.userRef = userRef;
-    }
-
     private String firstName;
     private String lastName;
+    private String nic;
     private String email;
     private String address;
     private String mobile;
     private String title;
-    private double fee;
+    private double physicalFee;
+    private double onlineFee;
     private String status;
-    private int userRef;
+    @Column(columnDefinition = "LONGTEXT")
+    private String img;
 
-    public Integer getId() {
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public Doctor() {
+    }
+
+    public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getNic() {
+        return nic;
+    }
+
+    public void setNic(String nic) {
+        this.nic = nic;
     }
 
     public String getEmail() {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getAddress() {
         return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getMobile() {
         return mobile;
     }
 
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
     public String getTitle() {
         return title;
     }
 
-    public double getFee() {
-        return fee;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public double getPhysicalFee() {
+        return physicalFee;
+    }
+
+    public void setPhysicalFee(double physicalFee) {
+        this.physicalFee = physicalFee;
+    }
+
+    public double getOnlineFee() {
+        return onlineFee;
+    }
+
+    public void setOnlineFee(double onlineFee) {
+        this.onlineFee = onlineFee;
     }
 
     public String getStatus() {
         return status;
     }
 
-    public int getUserRef() {
-        return userRef;
+    public void setStatus(String status) {
+        this.status = status;
     }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
 }

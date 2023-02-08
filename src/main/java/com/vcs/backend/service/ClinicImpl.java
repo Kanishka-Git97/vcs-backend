@@ -40,4 +40,9 @@ public class ClinicImpl implements ClinicService{
         repository.delete(id);
         return "Deleted";
     }
+
+    @Override
+    public List<Clinic> getClinics(Integer doctor) {
+        return repository.getClinics(doctor);
+    }
 }

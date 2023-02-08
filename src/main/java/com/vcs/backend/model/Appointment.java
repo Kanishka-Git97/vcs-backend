@@ -16,6 +16,15 @@ public class Appointment {
     private int doctor;
     private int client;
     private int clinic;
+    private String remark;
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
     public int getClinic() {
         return clinic;

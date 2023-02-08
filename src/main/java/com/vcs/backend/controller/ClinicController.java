@@ -20,12 +20,17 @@ public class ClinicController {
         return service.save(data);
     }
 
-    @GetMapping("all")
+    @GetMapping("/all")
     public List<Clinic> all(){
         return service.all();
     }
     @PostMapping("/delete")
     public String delete(@RequestBody ObjectNode data){
         return service.delete(data.get("id").asInt());
+    }
+
+    @PostMapping("/get")
+    public List<Clinic> get(@RequestBody ObjectNode data){
+        return service.getClinics(data.get("id").asInt());
     }
 }

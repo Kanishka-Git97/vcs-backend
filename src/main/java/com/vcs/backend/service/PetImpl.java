@@ -19,17 +19,31 @@ public class PetImpl implements PetService{
         pet.setBreed(data.get("breed").asText());
         pet.setDob(data.get("dob").asText());
         pet.setSex(data.get("sex").asText());
-        pet.setSpecialRemarks(data.get("remark").asText());
+        pet.setSpecialRemarks(data.get("specialRemarks").asText());
         pet.setType(data.get("type").asText());
         pet.setClient(data.get("client").asInt());
-        if(data.get("doctor")!=null){
             pet.setDoctor(data.get("doctor").asInt());
-        }
         repository.save(pet);
         return "Saved Pet";
     }
 
     public List<Pet> all(){
         return repository.findAll();
+    }
+
+    @Override
+    public List<Pet> getByDoctor(Integer doctor) {
+        return repository.getByDoctor(doctor);
+    }
+
+    @Override
+    public String update(Pet pet) {
+        repository.save(pet);
+        return "Saved Pet";
+    }
+
+    @Override
+    public List<Pet> getByClientAndDoctor(Integer client, Integer doctor) {
+        return repository.getByDoctorAndClient(client, doctor);
     }
 }

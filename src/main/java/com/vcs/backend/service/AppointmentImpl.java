@@ -36,4 +36,9 @@ public class AppointmentImpl implements AppointmentService{
     public List<Appointment> all(){
         return repository.findAll();
     }
+
+    @Override
+    public List<Appointment> getAppointments(Integer doctor) {
+        return repository.getAllByDoctor(doctor);
+    }
 }

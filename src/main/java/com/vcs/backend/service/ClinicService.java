@@ -9,4 +9,5 @@ public interface ClinicService {
     public String save(ObjectNode data);
     public List<Clinic> all();
     public String delete(int id);
+    public List<Clinic> getClinics(Integer doctor);
 }

@@ -8,4 +8,6 @@ import java.util.List;
 public interface AppointmentService {
     public String apply(ObjectNode data);
     public List<Appointment> all();
+
+    public List<Appointment> getAppointments(Integer doctor);
 }

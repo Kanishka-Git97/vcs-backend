@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/client")
+@CrossOrigin
 public class ClientController {
     @Autowired
     private ClientService service;
@@ -22,5 +23,15 @@ public class ClientController {
     @GetMapping("/all")
     public List<Client> all(){
         return service.all();
+    }
+
+    @PostMapping("/get")
+    public Client get(@RequestBody ObjectNode data){
+        return service.get(data.get("id").asInt());
+    }
+
+    @PostMapping("/get_by_doctor")
+    public List<Client> getByDoctor(@RequestBody ObjectNode data){
+        return service.getByDoctor(data.get("doctor").asInt());
     }
 }
