@@ -19,6 +19,15 @@ public class Client {
     private String registerVia;
     private int referral;
     private int user;
+    private String img;
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     public int getUser() {
         return user;

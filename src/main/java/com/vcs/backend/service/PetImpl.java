@@ -22,7 +22,7 @@ public class PetImpl implements PetService{
         pet.setSpecialRemarks(data.get("specialRemarks").asText());
         pet.setType(data.get("type").asText());
         pet.setClient(data.get("client").asInt());
-            pet.setDoctor(data.get("doctor").asInt());
+        pet.setDoctor(data.get("doctor").asInt());
         repository.save(pet);
         return "Saved Pet";
     }
@@ -45,5 +45,10 @@ public class PetImpl implements PetService{
     @Override
     public List<Pet> getByClientAndDoctor(Integer client, Integer doctor) {
         return repository.getByDoctorAndClient(client, doctor);
+    }
+
+    @Override
+    public List<Pet> getByClient(Integer client) {
+        return repository.getByClient(client);
     }
 }

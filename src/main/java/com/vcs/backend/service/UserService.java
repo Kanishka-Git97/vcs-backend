@@ -6,4 +6,5 @@ import com.vcs.backend.model.Sender;
 public interface UserService {
     public Sender validateLogin(String username, String password);
     public String register(ObjectNode data);
+
 }

@@ -12,4 +12,7 @@ public interface PetRepository extends JpaRepository<Pet, Integer> {
 
     @Query(value = "SELECT * FROM pet WHERE client=?1 AND doctor=?2", nativeQuery = true)
     public List<Pet> getByDoctorAndClient(Integer client, Integer doctor);
+
+    @Query(value = "SELECT * FROM pet WHERE client=?1", nativeQuery = true)
+    public List<Pet> getByClient(Integer client);
 }

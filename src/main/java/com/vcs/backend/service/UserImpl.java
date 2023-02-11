@@ -6,10 +6,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.vcs.backend.model.*;
-import com.vcs.backend.repository.ClinicRepository;
-import com.vcs.backend.repository.DoctorRepository;
-import com.vcs.backend.repository.EducationRepository;
-import com.vcs.backend.repository.UserRepository;
+import com.vcs.backend.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +26,8 @@ public class UserImpl implements UserService{
 
     @Autowired
     private ClinicRepository clinicRepository;
+    @Autowired
+    private ClientRepository clientRepository;
 
     //    Login Validation
     public Sender validateLogin(String username, String password){
@@ -41,9 +40,10 @@ public class UserImpl implements UserService{
             if(Objects.equals(user.getLevel(), "Doctor")){
                 sender.data = doctorRepository.findById(user.getUser()).orElse(null);
             }
-            else {
-                sender.data = user;
+            if(Objects.equals(user.getLevel(), "Client")){
+                sender.data = clientRepository.findById(user.getUser()).orElse(null);
             }
+
         }
         else{
             sender.msg = "Unauthorized Access";

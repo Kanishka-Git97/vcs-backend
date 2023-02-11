@@ -38,4 +38,9 @@ public class PetController {
     public List<Pet> getForAppointment(@RequestBody ObjectNode data){
         return service.getByClientAndDoctor(data.get("client").asInt(), data.get("doctor").asInt());
     }
+
+    @PostMapping("/mypets")
+    public List<Pet> myPets(@RequestBody ObjectNode data){
+        return service.getByClient(data.get("client").asInt());
+    }
 }
