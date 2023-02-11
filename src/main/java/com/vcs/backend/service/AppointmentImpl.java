@@ -14,6 +14,8 @@ public class AppointmentImpl implements AppointmentService{
     private AppointmentRepository repository;
 
     public String apply(ObjectNode data){
+
+//        List<String> times = List.of("9.30  am", "10.00 am", "10.30 am", "11.00 am", "11.30 am", "1.00 pm", "1.30 pm", "2.00 pm", "2.30 pm", "3.00 pm");
         Appointment appointment = new Appointment();
         appointment.setDate(data.get("date").asText());
         appointment.setTime(data.get("time").asText());
@@ -22,6 +24,9 @@ public class AppointmentImpl implements AppointmentService{
         appointment.setStatus(data.get("status").asText());
         appointment.setType(data.get("type").asText());
         appointment.setClinic(data.get("clinic").asInt());
+        appointment.setRemark(data.get("remark").asText());
+//        Validate the time slot
+
 
         if(repository.validate(appointment.getDate(), appointment.getTime(), appointment.getDoctor()) > 0){
             return "Time Slot are Already Reserved";
@@ -40,5 +45,10 @@ public class AppointmentImpl implements AppointmentService{
     @Override
     public List<Appointment> getAppointments(Integer doctor) {
         return repository.getAllByDoctor(doctor);
+    }
+
+    @Override
+    public List<Appointment> getAppointmentsByClient(Integer client) {
+        return repository.getAllByClient(client);
     }
 }

@@ -23,6 +23,7 @@ public class PetImpl implements PetService{
         pet.setType(data.get("type").asText());
         pet.setClient(data.get("client").asInt());
         pet.setDoctor(data.get("doctor").asInt());
+        pet.setImg(data.get("img").asText());
         repository.save(pet);
         return "Saved Pet";
     }
