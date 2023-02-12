@@ -43,4 +43,9 @@ public class PetController {
     public List<Pet> myPets(@RequestBody ObjectNode data){
         return service.getByClient(data.get("client").asInt());
     }
+
+    @PostMapping("/get")
+    public Pet get(@RequestBody ObjectNode data){
+        return service.get(data.get("id").asInt());
+    }
 }

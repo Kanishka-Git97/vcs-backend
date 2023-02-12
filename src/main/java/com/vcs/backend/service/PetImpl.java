@@ -52,4 +52,9 @@ public class PetImpl implements PetService{
     public List<Pet> getByClient(Integer client) {
         return repository.getByClient(client);
     }
+
+    @Override
+    public Pet get(Integer id) {
+        return repository.findById(id).orElse(null);
+    }
 }
