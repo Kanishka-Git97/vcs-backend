@@ -29,4 +29,9 @@ public class AppointmentController {
     public List<Appointment> appointments(@RequestBody ObjectNode data){
         return service.getAppointments(data.get("doctor").asInt());
     }
+
+    @PostMapping("/get")
+    public List<Appointment> get(@RequestBody ObjectNode data){
+        return service.getAppointmentsByClient(data.get("id").asInt());
+    }
 }

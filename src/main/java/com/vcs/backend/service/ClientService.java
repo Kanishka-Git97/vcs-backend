@@ -10,4 +10,6 @@ public interface ClientService {
     public List<Client> all();
     public Client get(int id);
     public List<Client> getByDoctor(Integer doctor);
+
+    public String update(Client client);
 }

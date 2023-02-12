@@ -60,4 +60,10 @@ public class ClientImpl implements ClientService{
     public List<Client> getByDoctor(Integer doctor) {
         return repository.getByDoctor(doctor);
     }
+
+    @Override
+    public String update(Client client) {
+        repository.save(client);
+        return "True";
+    }
 }

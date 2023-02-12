@@ -10,4 +10,5 @@ public interface AppointmentService {
     public List<Appointment> all();
 
     public List<Appointment> getAppointments(Integer doctor);
+    public List<Appointment> getAppointmentsByClient(Integer client);
 }

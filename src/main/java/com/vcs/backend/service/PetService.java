@@ -12,4 +12,5 @@ public interface PetService {
     public String update(Pet pet);
     public List<Pet> getByClientAndDoctor(Integer client, Integer doctor);
     public List<Pet> getByClient(Integer client);
+    public Pet get(Integer id);
 }

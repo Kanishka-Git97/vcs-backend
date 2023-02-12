@@ -34,4 +34,9 @@ public class ClientController {
     public List<Client> getByDoctor(@RequestBody ObjectNode data){
         return service.getByDoctor(data.get("doctor").asInt());
     }
+
+    @PostMapping("/update")
+    public String update(@RequestBody Client client){
+        return service.update(client);
+    }
 }
